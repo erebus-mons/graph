@@ -1,6 +1,7 @@
 ;;; graph.lisp --- because its easier to write than to learn such a library
 
 ;; Copyright (C) Eric Schulte and Thomas Dye 2012-2013
+;; Modified by EM 2014
 
 ;; Licensed under the Gnu Public License Version 3 or later
 
@@ -396,9 +397,9 @@ edge in the results."))
   ;;       structures, may often be met by maintaining a hash table
   ;;       outside of the graph which maps graph nodes to the more
   ;;       complex object related to the node.
-  (assert (or (numberp node) (symbolp node)) (node)
-          "Nodes must be numbers, symbols or keywords, not ~S.~%Invalid node:~S"
-   (type-of node) node)
+  ;; (assert (or (numberp node) (symbolp node)) (node)
+  ;;         "Nodes must be numbers, symbols or keywords, not ~S.~%Invalid node:~S"
+  ;; 	  (type-of node) node)
   (unless (has-node-p graph node)
     (setf (gethash node (node-h graph)) nil)
     node))
